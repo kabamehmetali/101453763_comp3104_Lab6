@@ -15,13 +15,11 @@ install:
   - npm install -g yarn
 
 script:
-  #- yarn lint
-  - yarn build
-  - mv build/index.html build/404.html
+  - echo "test"
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $github_token
+  github_token: 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
   local_dir: build
   on:
     branch: master
