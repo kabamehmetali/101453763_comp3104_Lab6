@@ -1,7 +1,7 @@
 dist: focal  # Use Ubuntu 20.04 (Focal) for a newer glibc version
 language: node_js
 node_js:
-  - "stable"
+  - "16"
 
 branches:
   only:
@@ -13,7 +13,7 @@ cache:
 
 install:
   - npm install
-  - npm install -g yarn
+
 
 script:
   - yarn lint
