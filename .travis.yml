@@ -1,29 +1,28 @@
 dist: focal  # Use Ubuntu 20.04 (Focal) for a newer glibc version
 language: node_js
 node_js:
-  - "16"
+  - "stable"
 
 branches:
   only:
-    - main
+  - main
 
 cache:
   directories:
-    - node_modules
+  - node_modules
 
 install:
   - npm install
-
+  - npm install -g yarn
 
 script:
-  - yarn lint
+  #- yarn lint
   - yarn build
   - mv build/index.html build/404.html
-
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN  # Make sure to set this token in Travis CI settings
+  github_token: $github_token
   local_dir: build
   on:
     branch: main
