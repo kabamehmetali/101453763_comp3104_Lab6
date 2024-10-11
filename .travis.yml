@@ -5,7 +5,7 @@ node_js:
 
 branches:
   only:
-  - main
+  - dep-inclusions
 
 cache:
   directories:
@@ -27,4 +27,4 @@ deploy:
   local_dir: build
   keep_history: true
   on:
-    branch: main
+    branch: dep-inclusions
