@@ -4,22 +4,25 @@ node_js:
 
 branches:
   only:
-  - master
+    - main
 
 cache:
   directories:
-  - node_modules
+    - node_modules
 
 install:
   - npm install
   - npm install -g yarn
 
 script:
-  - echo "test"
+  - yarn lint
+  - yarn build
+  - mv build/index.html build/404.html
+
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: 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
+  github_token: "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"  # Make sure to set this token in Travis CI settings
   local_dir: build
   on:
-    branch: master
+    branch: main
