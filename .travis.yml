@@ -4,11 +4,11 @@ node_js:
 
 branches:
   only:
-  - master
+    - master
 
 cache:
   directories:
-  - node_modules
+    - node_modules
 
 install:
   - npm install
@@ -18,10 +18,11 @@ script:
   - yarn lint
   - yarn build
   - mv build/index.html build/404.html
+
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: "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"
+  github_token: $GITHUB_TOKEN  # Secure your token using environment variables in Travis settings
   local_dir: build
   on:
     branch: master
