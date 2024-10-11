@@ -22,7 +22,7 @@ script:
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $github_token
+  github_token: "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"
   local_dir: build
   on:
     branch: main
