@@ -1,10 +1,11 @@
+dist: focal  # Use Ubuntu 20.04 (Focal) for a newer glibc version
 language: node_js
 node_js:
   - "stable"
 
 branches:
   only:
-  - dep-inclusions
+  - main
 
 cache:
   directories:
@@ -18,10 +19,12 @@ script:
   #- yarn lint
   - yarn build
   - mv build/index.html build/404.html
+
 deploy:
   provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
+  edge: true  # Use dpl v2
+  token: $GITHUB_TOKEN  # Reference the GitHub token securely
   local_dir: build
+  keep_history: true
   on:
-    branch: dep-inclusions
+    branch: main
