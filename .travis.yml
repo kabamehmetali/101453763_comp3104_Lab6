@@ -1,4 +1,4 @@
-dist: bionic  # Use Ubuntu 18.04 (Bionic) for a compatible glibc version
+dist: focal  # Use Ubuntu 20.04 (Focal) for a newer glibc version
 language: node_js
 node_js:
   - "stable"
@@ -23,7 +23,7 @@ script:
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: "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"  # Make sure to set this token in Travis CI settings
+  github_token: $GITHUB_TOKEN  # Make sure to set this token in Travis CI settings
   local_dir: build
   on:
     branch: main
